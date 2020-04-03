@@ -1,13 +1,17 @@
 # Main program of Alien Invasion
 import sys
 import pygame
+from setting import Settings
+from ship import Ship
 
 def run_game():
     pygame.init()
+    win_settings = Settings()
     # Configuring screen res and title
-    screen =  pygame.display.set_mode((1440, 900))
-    bg_color = (40, 80, 100)
+    screen =  pygame.display.set_mode((win_settings.width, win_settings.height))
     pygame.display.set_caption("虎哥大战杀马特团长")
+
+    ship = Ship(screen)
 
     while True:
 
@@ -16,7 +20,9 @@ def run_game():
             if event.type == pygame.quit:
                 sys.exit
         
-        screen.fill(bg_color)
+        screen.fill(win_settings.bg_color)
+        ship.blitme()
+
         pygame.display.flip()
 
 run_game()
