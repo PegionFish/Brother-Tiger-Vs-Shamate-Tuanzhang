@@ -1,8 +1,9 @@
-# Main program of Alien Invasion
+# Main program of Brother Tiger vs Shamate Tuanzhang
 import sys
 import pygame
 from setting import Settings
 from tiger import HuGe
+import functions as gf
 
 def run_game():
     pygame.init()
@@ -14,15 +15,7 @@ def run_game():
     tiger = HuGe(screen)
 
     while True:
-
-        #Monitoring Keyboard & Mouse
-        for event in pygame.event.get():
-            if event.type == pygame.quit:
-                sys.exit
-        
-        screen.fill(win_settings.bg_color)
-        tiger.blitme()
-
-        pygame.display.flip()
-
+        gf.check_events(tiger)
+        tiger.update()
+        gf.update_screen(win_settings, screen, tiger)
 run_game()
