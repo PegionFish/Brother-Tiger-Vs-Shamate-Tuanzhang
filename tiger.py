@@ -1,9 +1,9 @@
 import pygame
 
 class HuGe():
-    def __init__ (self, screen):
+    def __init__ (self, sys_settings, screen):
         self.screen = screen
-
+        self.sys_settings = sys_settings
     # Load HuGe's image & vortex
         self.image = pygame.image.load("material/image/tiger.jpeg")
         self.rect = self.image.get_rect()
@@ -13,11 +13,26 @@ class HuGe():
         self.rect.centerx = self.screen_rect.centerx
         self.rect.bottom = self.screen_rect.bottom
 
-    def blitme(self):
-        self.screen.blit(self.image, self.rect)
+    # Store a decimal value for HuGe's center
+        self.center = float(self.rect.centerx)
+        self.bottom = float(self.rect.bottom)
 
-    def update(tiger):
-        if tiger.moving_right:
-            self.rect.centerx += 1
-        if tiger.moving_left:
-            self.rect.centerx -= 1
+    # Movement Flag
+        self.moving_right = False
+        self.moving_left = False
+
+    def update(self):
+        """Update HuGe's position based on moving flag"""
+        # Update HuGe's center value, not the rect
+        if self.moving_right and self.rect.right < self.screen_rect.right:
+            self.center += self.sys_settings.HuGe_speed_factor
+        elif self.moving_left and self.rect.left > 0:
+            self.center -= self.sys_settings.HuGe_speed_factor
+        
+        # Update rect object from self.center
+        self.rect.centerx = self.center
+        self.rect.bottom = self.bottom
+
+    def blitme(self):
+        """Draw ship at given location"""
+        self.screen.blit(self.image, self.rect)
