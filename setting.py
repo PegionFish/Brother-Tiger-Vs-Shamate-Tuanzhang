@@ -8,3 +8,9 @@ class Settings():
 
         # Control HuGe's Speed
         self.HuGe_speed_factor = 1.5
+
+        # Huo settings
+        self.huo_speed_factor = 1
+        self.huo_width = 3
+        self.huo_height = 15
+        self.huo_color = 60,60,60

@@ -5,7 +5,7 @@ class HuGe():
         self.screen = screen
         self.sys_settings = sys_settings
     # Load HuGe's image & vortex
-        self.image = pygame.image.load("material/image/tiger.jpeg")
+        self.image = pygame.image.load("material/image/tiger.png")
         self.rect = self.image.get_rect()
         self.screen_rect = screen.get_rect()
 

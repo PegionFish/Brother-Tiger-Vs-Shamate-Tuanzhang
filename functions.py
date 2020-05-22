@@ -1,5 +1,6 @@
 import sys
 import pygame
+from huo import Huo
 
 def check_keydown_events(event, HuGe):
     """Respond to keypresses"""
@@ -15,6 +16,10 @@ def check_keydown_events(event, HuGe):
     elif event.key == pygame.K_DOWN:
         #Move the HuGe to the bottom
         HuGe.moving_down = True
+    elif event.key == pygame.K_SPACE:
+        #Zheng Huo
+        new_huo = Huo(sys_settings, screen, HuGe)
+        huo.add(new_huo)
 def check_keyup_events(event, HuGe):
     """Respond to key releases"""
     if event.key == pygame.K_RIGHT:
