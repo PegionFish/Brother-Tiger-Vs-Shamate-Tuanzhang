@@ -24,5 +24,11 @@ def run_game():
         gf.check_events(sys_settings, screen, tiger, huo)
         tiger.update()
         huo.update()
-        gf.update_screen(sys_settings, screen, tiger, huo)
+
+#        # Get rid of huos outside screen
+#        for huo in huo.copy():
+#            if huo.rect.bottom <= 0:
+#                huo.remove(huo)
+#        print(len(huo))
+#        gf.update_screen(sys_settings, screen, tiger, huo)
 run_game()

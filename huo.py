@@ -4,7 +4,7 @@ from pygame.sprite import Sprite
 class Huo(Sprite):
     """A Class to manage huo made by HuGe"""
 
-    def __init__(self, sys_settings, screen, ship):
+    def __init__(self, sys_settings, screen, HuGe):
         """Create a huo object at HuGe's position"""
         super(Huo, self).__init__() # Python 2 method, works in Python 3 but writing as super().__init__() is better
         self.screen = screen
